@@ -1,0 +1,85 @@
+<template>
+    
+    <lightning-card title = "Guest Entry Form" icon-name = "standard:form">
+        
+        <template if:true ={booleanFlagValue}>
+        <template if:true ={guestRecord}>
+            <div class = "slds-m-around--x-large">
+                <div class = "container-fluid">
+                    
+                    <div class = "form-group">
+                        <lightning-input label = "First Name" type = "text" required = "required" value ={guestRecord.Guest_First_Name__c} onchange={handleFirstNameChange}></lightning-input>
+                    </div>
+
+                    <div class = "form-group">
+                        <lightning-input label = "Last Name" type = "text" required = "required" value ={guestRecord.Guest_Last_Name__c} onchange={handleLastNameChange}></lightning-input>
+                    </div>
+
+                    <div class = "form-group">
+                        <lightning-input label = "Phone" type = "phone" value ={guestRecord.Guest_Phone__c} onchange={handlePhoneChange}></lightning-input>
+                    </div>
+
+                    <div class = "form-group">
+                        <lightning-input label = "Email" type = "email" required = "required" value ={guestRecord.Guest_Email__c} onchange={handleEmailChange}></lightning-input>
+                    </div>
+
+                    <div class = "form-group">
+                        <lightning-input label = "Number of Adults(12 years+)" type = "number" onchange={handleNoOfAdultsChange}></lightning-input>
+                    </div>
+
+                    <div class = "form-group">
+                        <lightning-input label = "Number of Children(0-12 years)" type = "number" onchange={handleNoOfChildrenChange}></lightning-input>
+                    </div>
+
+                    <div class = "form-group">
+                    <lightning-input label = "Check In Date" type = "date" onchange={handleCheckInDateChange}></lightning-input>
+                    </div>
+
+                    <div class = "form-group">
+                        <lightning-input label = "Check Out Date" type = "date" onchange={handleCheckOutDateChange}></lightning-input>
+                    </div>
+
+                    <div class = "form-group">
+                        <lightning-input label = "City of Hotel" type = "text" onchange={handleHotelCityChange} ></lightning-input>
+                    </div>
+
+                    <div class = "form-group">
+                        <lightning-combobox name = "Types" label = "Preferred Hotel Type" options ={options} onchange={handleHoteltypeChange}></lightning-combobox>
+                    </div>
+                
+                </div>
+                <br>
+                <lightning-button label = "Save" onclick ={handleSave} variant = "brand"></lightning-button>
+                <br><br>
+                
+         
+            </div>
+                
+            </template>
+        </template>
+        
+                
+                <template if:false ={booleanFlagValue}>
+                    
+                    <!-- call child hotel listing component and pass these property to child -->
+                    <c-hotel-listing-component 
+    
+                        hotelcityfromguestcomp ={hotelCity}
+                        hoteltypefromguestcomp ={hotelType}
+                        numberofadultsfromguestcomp ={numberOfAdults}
+                        numberofchildrenfromguestcomp ={numberOfChildren}
+                        checkindatefromguestcomp ={checkInDate}
+                        checkoutdatefromguestcomp ={checkOutDate}
+                        guestemailfromguestcomp ={guestEmail}
+                        guestfirstnamefromguestcomp ={guestFirstName}
+                        
+                        guestidfromguestcomp ={guestid}>
+
+                         
+                    </c-hotel-listing-component>
+                
+                </template>
+
+    </lightning-card>
+    
+</template>
