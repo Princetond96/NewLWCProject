@@ -1,0 +1,60 @@
+<template>
+
+    <lightning-card title = "Hotel List" icon-name = "standard:home">
+        
+        <div>
+        <lightning-button label = "Select" onclick ={handleSelect} variant = "brand"></lightning-button>
+        </div>
+
+        <div class = "slds-m-around_medium">
+            
+            <template if:true ={showPaymentComponent}>
+            
+            <!-- display data when data is present in hotelList property-->    
+            <template if:true ={hotelList}>
+                <div style = "height: 250px;">
+                    
+                    <!-- this is used to show data in tabular format -->
+                    <lightning-datatable
+                        key-field = "id"
+                        data ={hotelList}
+                        columns ={columns}
+                        onrowselection ={getSelectedRecord}>
+                    </lightning-datatable>
+                    
+                </div>
+            </template>
+           
+            <!-- this is used to display when no records are found in database-->
+            <template if:false ={hotelList}>
+                <lightning-datatable
+                        key-field = "id"
+                        columns ={columns}>
+                          
+                    </lightning-datatable>
+                    <div class = "slds-align_absolute-center" style = "height:5rem"> No Hotels Found...!</div>
+            </template>
+        </template>
+        </div>    
+
+            <template if:false ={showPaymentComponent}>
+
+                <!-- call child payment info component and pass the property values we received from 
+                     guest component to payment component-->
+                <c-payment-info-component
+                guestidfromhotelcomp ={guestidfromguestcomp}
+                hotelcityfromhotelcomp ={hotelcityfromguestcomp}
+                hoteltypefromhotelcomp ={hoteltypefromguestcomp}
+                numberofadultsfromhotelcomp ={numberofadultsfromguestcomp}
+                numberofchildrenfromhotelcomp ={numberofchildrenfromguestcomp}
+                checkindatefromhotelcomp ={checkindatefromguestcomp}
+                checkoutdatefromhotelcomp ={checkoutdatefromguestcomp}
+                guestemailfromhotelcomp ={guestemailfromguestcomp}
+                guestfirstnamefromhotelcomp ={guestfirstnamefromguestcomp}>
+                     
+                </c-payment-info-component>
+            </template>
+
+    </lightning-card>
+    
+</template>
