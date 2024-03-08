@@ -1,0 +1,23 @@
+<template>
+
+    <lightning-card title = "Payment Details" icon-name = "standard:payment_gateway">
+        
+        <lightning-record-edit-form id ="form" object-api-name ="Payment_Detail__c" onsuccess ={handleSuccess}>
+
+           <lightning-input-field field-name ="Card_Number__c"></lightning-input-field>
+           <lightning-input-field field-name ="Expiry_Month__c"></lightning-input-field>
+           <lightning-input-field field-name ="Expiry_Year__c"></lightning-input-field>
+           <lightning-input-field field-name ="CVV__c"></lightning-input-field>
+           <lightning-input-field field-name ="Guest__c" value ={guestidfromhotelcomp}></lightning-input-field>
+        
+
+        <div class = "slds-var-m-top_medium">
+           <lightning-button variant ="brand" label = "Submit" onclick ={handleSubmit}></lightning-button>
+        </div>
+        
+
+       </lightning-record-edit-form>
+        
+    </lightning-card>
+
+</template>
