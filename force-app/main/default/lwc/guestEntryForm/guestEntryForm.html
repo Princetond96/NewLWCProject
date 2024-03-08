@@ -8,19 +8,19 @@
                 <div class = "container-fluid">
                     
                     <div class = "form-group">
-                        <lightning-input label = "First Name" type = "text" required = "required" value ={guestRecord.Guest_First_Name__c} onchange={handleFirstNameChange}></lightning-input>
+                        <lightning-input label = "First Name" type = "text" required = "required" value ={guestRecord.First_Name__c} onchange={handleFirstNameChange}></lightning-input>
                     </div>
 
                     <div class = "form-group">
-                        <lightning-input label = "Last Name" type = "text" required = "required" value ={guestRecord.Guest_Last_Name__c} onchange={handleLastNameChange}></lightning-input>
+                        <lightning-input label = "Last Name" type = "text" required = "required" value ={guestRecord.Last_Name__c} onchange={handleLastNameChange}></lightning-input>
                     </div>
 
                     <div class = "form-group">
-                        <lightning-input label = "Phone" type = "phone" value ={guestRecord.Guest_Phone__c} onchange={handlePhoneChange}></lightning-input>
+                        <lightning-input label = "Phone" type = "phone" value ={guestRecord.Phone__c} onchange={handlePhoneChange}></lightning-input>
                     </div>
 
                     <div class = "form-group">
-                        <lightning-input label = "Email" type = "email" required = "required" value ={guestRecord.Guest_Email__c} onchange={handleEmailChange}></lightning-input>
+                        <lightning-input label = "Email" type = "email" required = "required" value ={guestRecord.Email__c} onchange={handleEmailChange}></lightning-input>
                     </div>
 
                     <div class = "form-group">
@@ -62,7 +62,7 @@
                 <template if:false ={booleanFlagValue}>
                     
                     <!-- call child hotel listing component and pass these property to child -->
-                    <c-hotel-listing-component 
+                    <c-hotel-list
     
                         hotelcityfromguestcomp ={hotelCity}
                         hoteltypefromguestcomp ={hotelType}
@@ -76,7 +76,7 @@
                         guestidfromguestcomp ={guestid}>
 
                          
-                    </c-hotel-listing-component>
+                    </c-hotel-list>
                 
                 </template>
 

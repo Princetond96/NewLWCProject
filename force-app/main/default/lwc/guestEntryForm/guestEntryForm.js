@@ -5,11 +5,11 @@ import saveGuestRecord from '@salesforce/apex/LWCGuestEntryFormClass.saveGuestRe
 
 import {ShowToastEvent} from 'lightning/platformShowToastEvent';
 
-//import fields from Guest Master record
-import GuestFirstName_FIELD from '@salesforce/schema/Guest_Master__c.Guest_First_Name__c';
-import GuestLastName_FIELD from '@salesforce/schema/Guest_Master__c.Guest_Last_Name__c';
-import GuestPhone_FIELD from '@salesforce/schema/Guest_Master__c.Guest_Phone__c';
-import GuestEmail_FIELD from '@salesforce/schema/Guest_Master__c.Guest_Email__c';
+//import fields from Guest record
+import GuestFirstName_FIELD from '@salesforce/schema/Guest__c.First_Name__c';
+import GuestLastName_FIELD from '@salesforce/schema/Guest__c.Last_Name__c';
+import GuestPhone_FIELD from '@salesforce/schema/Guest__c.Phone__c';
+import GuestEmail_FIELD from '@salesforce/schema/Guest__c.Email__c';
 
 
 export default class GuestEntryFormComponent extends LightningElement {
@@ -38,35 +38,35 @@ export default class GuestEntryFormComponent extends LightningElement {
     booleanFlagValue = true;
     
     @track guestRecord = {
-        Guest_First_Name__c : GuestFirstName_FIELD,
-        Guest_Last_Name__c : GuestLastName_FIELD,
-        Guest_Phone__c : GuestPhone_FIELD,
-        Guest_Email__c : GuestEmail_FIELD
+        First_Name__c : GuestFirstName_FIELD,
+        Last_Name__c : GuestLastName_FIELD,
+        Phone__c : GuestPhone_FIELD,
+        Email__c : GuestEmail_FIELD
 
     };
 
     //on change of input field call the handler function to store the value in property 
 
     handleFirstNameChange(event){
-        this.guestRecord.Guest_First_Name__c = event.target.value;
-        this.guestFirstName = this.guestRecord.Guest_First_Name__c;
-        console.log('First Name =' +this.guestRecord.Guest_First_Name__c);
+        this.guestRecord.First_Name__c = event.target.value;
+        this.guestFirstName = this.guestRecord.First_Name__c;
+        console.log('First Name =' +this.guestRecord.First_Name__c);
     }
 
     handleLastNameChange(event){
-        this.guestRecord.Guest_Last_Name__c = event.target.value;
-        console.log('Last Name =' +this.guestRecord.Guest_Last_Name__c);
+        this.guestRecord.Last_Name__c = event.target.value;
+        console.log('Last Name =' +this.guestRecord.Last_Name__c);
     }
 
     handlePhoneChange(event){
-        this.guestRecord.Guest_Phone__c = event.target.value;
-        console.log('Phone =' +this.guestRecord.Guest_Phone__c);
+        this.guestRecord.Phone__c = event.target.value;
+        console.log('Phone =' +this.guestRecord.Phone__c);
     }
 
     handleEmailChange(event){
-        this.guestRecord.Guest_Email__c = event.target.value;
-        this.guestEmail = this.guestRecord.Guest_Email__c;
-        console.log('Email =' +this.guestRecord.Guest_Email__c);
+        this.guestRecord.Email__c = event.target.value;
+        this.guestEmail = this.guestRecord.Email__c;
+        console.log('Email =' +this.guestRecord.Email__c);
     }
 
     handleHotelCityChange(event){
